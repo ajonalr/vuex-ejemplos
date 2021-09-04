@@ -6,7 +6,7 @@
 
   <button @click="increment">+1</button>
   <button @click="incrementVal(5)">+5</button>
-  <button @click="incrementRandom">Random</button>
+  <button @click="randmonInt">Random</button>
 
   <h1>Map State</h1>
   <h2>{{ contador }}</h2>
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 
 export default {
   computed: {
@@ -40,7 +40,10 @@ export default {
        const random = Math.random() * (11 - 1) + 1;
        const valor = Math.round(random);
        this.$store.commit("incrementVal", valor);
-    }
+    },
+    ...mapActions({
+      randmonInt: 'incrementRandomInt'
+    })
   },
 };
 </script>
