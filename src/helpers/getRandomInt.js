@@ -7,7 +7,7 @@ const getRandomInt= () => {
 
       setTimeout(() => {
          resolve(rnInt);
-      }, 1000)
+      }, 2000)
 
 
    })

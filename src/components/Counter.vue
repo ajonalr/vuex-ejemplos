@@ -6,11 +6,15 @@
 
   <button @click="increment">+1</button>
   <button @click="incrementVal(5)">+5</button>
-  <button @click="randmonInt">Random</button>
+  <button @click="randmonInt" :disabled="isLoading">Random</button>
 
   <h1>Map State</h1>
   <h2>{{ contador }}</h2>
   <h3>LastMutation: {{ lastMutation }}</h3>
+
+
+<h2>Direct Getter: {{$store.getters.squareCoutn}}</h2>
+
 </template>
 
 <script>
@@ -22,7 +26,7 @@ export default {
       return this.$store.state.contador;
     },
     // los 3 puntos es la desestruturacion de datos, para usara mis propios computed
-    ...mapState(["contador", "lastMutation"]),
+    ...mapState(["contador", "lastMutation","isLoading"]),
     // esto es si yo tengo un variable que se llame igual que mi state
     // ...mapState({
     //    contador: state => state.contador,
